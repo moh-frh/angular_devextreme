@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row pt-5 justify-content-center">
+    <div class="col-5"> 
+      <dx-form #userForm [formData]="employee" [colCount]="1" validationGroup="customerData">
+        <dxi-item itemType="group" caption="add new employee">
+          <!-- <dxi-item dataField="id"></dxi-item> -->
+          <dxi-item dataField="FirstName" editorType="dxTextBox">
+            <dxi-validation-rule type="required" message="firstName is required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item dataField="LastName" editorType="dxTextBox">
+            <dxi-validation-rule type="required" message="lastName is required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item dataField="Position" editorType="dxSelectBox" [editorOptions]="{ items: ['CEO', 'CMO'] }">
+            <dxi-validation-rule type="required" message="Position is required"> </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item dataField="BirthDate" editorType="dxNumberBox">
+            <dxi-validation-rule type="required" message="BirthDate is required"> </dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item dataField="Prefix" editorType="dxSelectBox" [editorOptions]="{ items: ['Mr.', 'Dr.'] }" >
+            <dxi-validation-rule type="required" message="Prefix is required"> </dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item dataField="Notes" editorType="dxTextBox">
+            <dxi-validation-rule type="required" message="Notes is required"> </dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item dataField="Address" editorType="dxTextBox">
+            <dxi-validation-rule type="required" message="Address is required"> </dxi-validation-rule>
+          </dxi-item>
+        </dxi-item>
+      </dx-form>
+
+      <!-- <dx-load-panel
+        #loadPanel
+        shadingColor="rgba(0,0,0,0.4)"
+        [position]="{ of: '#userForm' }"
+        [(visible)]="loadingVisible"
+        [showIndicator]="true"
+        [showPane]="true"
+        [shading]="true"
+        [closeOnOutsideClick]="false"
+      >
+      </dx-load-panel> -->
+
+      <div class="row justify-content-start">
+
+        <div class="col-4">
+          <dx-button text="ADD" validationGroup="customerData" (click)="onSubmit()" type="success"></dx-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="form">
+
+    <div class="dx-field">
+      <div class="dx-field-label">title</div>
+      <div class="dx-field-value">
+          <dx-text-box placeholder="Mr."></dx-text-box>
+      </div>
+    </div>
+
+  <div class="dx-field">
+    <div class="dx-field-label">first name</div>
+    <div class="dx-field-value">
+        <dx-text-box  placeholder="mohamed..."></dx-text-box>
+    </div>
+  </div>
+
+  <div class="dx-field">
+    <div class="dx-field-label">last name</div>
+    <div class="dx-field-value">
+        <dx-text-box placeholder="fouaz..."></dx-text-box>
+    </div>
+  </div>
+
+  <div class="dx-field">
+    <div class="dx-field-label">position</div>
+    <div class="dx-field-value">
+        <dx-text-box placeholder="CEO..."></dx-text-box>
+    </div>
+  </div>
+
+  <div class="dx-field">
+    <div class="dx-field-label">birthday</div>
+    <div class="dx-field-value">
+        <dx-text-box placeholder="13/09/1997..."></dx-text-box>
+    </div>
+  </div>
+  </div> -->
+</div>

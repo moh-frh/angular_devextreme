@@ -1,0 +1,73 @@
+<!-- {{allEmployees | json}} -->
+<div class="container">
+
+    <dx-button
+    text="Add user"
+    type="success"
+    (onClick)="toggleHidden()"
+    >
+    </dx-button>
+
+    <!-- <dx-text-box [(value)]="name" [disabled]="false" [readOnly]="false" width="300">
+        <dx-validator>
+            <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+            <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+        </dx-validator>
+    </dx-text-box> -->
+
+    <dx-data-grid id="gridContainer"
+                [dataSource]="dataSource"
+                [showBorders]="true"
+                keyExpr="id"
+                (onRowValidating)="rowValidating($event)"
+                (onEditorPreparing)="editorPreparing($event)"
+                (onRowUpdating)="onRowUpdating($event)"
+                >
+
+        
+        <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]=true [useIcons]="true"></dxo-editing>
+
+
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-search-panel [visible]="true" placeholder="serching !!"></dxo-search-panel>
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-export [enabled]="true" ></dxo-export>
+
+        <dxo-pager 
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[5, 10, 20]"
+            [showInfo]="true">
+        </dxo-pager>
+
+        <dxi-column type="buttons" [width]="110">
+            <dxi-button name="edit"></dxi-button>
+            <dxi-button name="delete"></dxi-button>
+
+            <!-- <dxi-button
+                hint="Clone"
+                icon="repeat"
+                [visible]="isCloneIconVisible"
+                [onClick]="cloneIconClick"></dxi-button> -->
+        </dxi-column>
+        <dxi-column dataField="Prefix" caption="Title"></dxi-column>
+        <dxi-column dataField="FirstName"></dxi-column>
+        <dxi-column dataField="LastName"></dxi-column>
+        <dxi-column dataField="Position" [width]="130"></dxi-column>
+        <!-- <dxi-column dataField="StateID" [width]="125" caption="State">
+            <dxo-lookup [dataSource]="states" displayExpr="Name" valueExpr="ID"></dxo-lookup>
+        </dxi-column> -->
+        <dxi-column dataField="Address"  [width]="125" ></dxi-column>
+
+        <dxo-paging [pageSize]="5"></dxo-paging>
+        <dxo-pager
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[1, 3, 5]"
+        ></dxo-pager>
+
+    </dx-data-grid>
+
+    <app-add-edit  *ngIf="! isHidden"></app-add-edit>
+</div>
+
+
+
